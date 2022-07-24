@@ -1,0 +1,83 @@
+[import](common.lg)
+
+# SendActivity_Greeting()
+[Activity
+    Text = ${SendActivity_Greeting_text()}
+]
+
+# SendActivity_Greeting_text()
+- Hello! I'm TFGBot. I'm a virtual assistant and I provide information about videogame sales. C'mon, give it a try! Try typing "I want info about Wii Sports"
+- Good day! What can I do for you today? I provide information about videogame sales. Try typing "What was the best selling game of 2003?"
+# SendActivity_DidNotUnderstand()
+[Activity
+    Text = ${SendActivity_DidNotUnderstand_text()}
+]
+
+# SendActivity_DidNotUnderstand_text()
+- Sorry, I didn't get that.
+# TextInput_Prompt_SU5llW()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_vlL3Bv()
+- ${expandText(@answer)}
+
+# SendActivity_gTUPWr()
+[Activity
+    Text = ${SendActivity_gTUPWr_text()}
+]
+
+# SendActivity_gTUPWr_text()
+- ${turn.results}
+# ThumbnailCard
+[ThumbnailCard
+    title = BotFramework Thumbnail Card
+    subtitle = Microsoft Bot Framework
+    text = Build and connect intelligent bots to interact with your users naturally wherever they are, from text/sms to Skype, Slack, Office 365 mail and other popular services.
+    image = https://sec.ch9.ms/ch9/7ff5/e07cfef0-aa3b-40bb-9baa-7c9ef8ff7ff5/buildreactionbotframework_960.jpg
+    buttons = Get Started
+]
+# SendActivity_vDzwaD()
+[Activity
+    Attachments = ${SendActivity_vDzwaD_attachment_PsnKha()}
+]
+
+# SendActivity_vDzwaD_attachment_PsnKha()
+- ${dialog.api_response.content.payload}
+# SendActivity_lTfpWw()
+[Activity
+    Attachments = ${SendActivity_lTfpWw_attachment_Gwveh1()}
+]
+
+# SendActivity_lTfpWw_attachment_Gwveh1()
+- ${dialog.api_response.content.payload}
+# SendActivity_R5A3Bx()
+[Activity
+    Attachments = ${SendActivity_R5A3Bx_attachment_gzzCHN()}
+]
+
+# SendActivity_R5A3Bx_attachment_gzzCHN()
+- ${dialog.api_response.content.payload}
+# SendActivity_fHvhLt()
+[Activity
+    Attachments = ${SendActivity_fHvhLt_attachment_cOau4t()}
+]
+
+# SendActivity_fHvhLt_attachment_cOau4t()
+- ${dialog.api_response.content.payload}
+# SendActivity_NAsEYU()
+[Activity
+    Text = ${SendActivity_NAsEYU_text()}
+]
+
+# SendActivity_NAsEYU_text()
+- ${dialog.api_response.content.payload}
+# SendActivity_OVk3za()
+[Activity
+    Attachments = ${SendActivity_OVk3za_attachment_tpzznR()}
+]
+
+# SendActivity_OVk3za_attachment_tpzznR()
+- ${dialog.api_response.content.payload}

@@ -1,0 +1,17 @@
+{
+  "TFGBot.en-us": {
+    "rootDialog": true,
+    "triggers": {
+      "IntentPrueba": [
+        "Prueba.en-us"
+      ],
+      "pruebaBackend": "",
+      "BestSellingVGPerYear": "",
+      "GamesPerPlatform": "",
+      "GamesPerGenreAndYear": "",
+      "GamesPerCompanyAndYear": "",
+      "SalesByYear": "",
+      "GamesPerName": ""
+    }
+  }
+}

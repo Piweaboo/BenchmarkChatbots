@@ -1,0 +1,389 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "name": "TFGBot",
+    "description": "",
+    "id": "A79tBe"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnConversationUpdateActivity",
+      "$designer": {
+        "id": "376720",
+        "comment": "This trigger runs when a conversation update activity is sent to the bot. This indicates a user or bot being added or removed from a conversation."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "518944",
+            "name": "Loop: for each item",
+            "comment": "For each member added to the conversation."
+          },
+          "itemsProperty": "turn.Activity.membersAdded",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "641773",
+                "name": "Branch: if/else",
+                "comment": "Checks that that member added ID does not match the bot ID. This prevents the greeting message from being sent when the bot is added to a conversation."
+              },
+              "condition": "=string(dialog.foreach.value.id) != string(turn.Activity.Recipient.id)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "859266",
+                    "name": "Send a response"
+                  },
+                  "activity": "${SendActivity_Greeting()}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnUnknownIntent",
+      "$designer": {
+        "id": "mb2n1u",
+        "comment": "This trigger fires when an incoming activity is not handled by any other trigger."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "kMjqz1",
+            "comment": "It is recommended to show a message to the user when the bot does not know how to handle an incoming activity and provide follow up options or a help message."
+          },
+          "activity": "${SendActivity_DidNotUnderstand()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "E6SpWO",
+        "name": "IntentPrueba"
+      },
+      "intent": "IntentPrueba",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "DHV6XA"
+          },
+          "activityProcessed": true,
+          "dialog": "Prueba"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnQnAMatch",
+      "$designer": {
+        "id": "2ocY5J"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "s0kgVS"
+          },
+          "condition": "count(turn.recognized.answers[0].context.prompts) > 0",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "5l4gRT"
+              },
+              "property": "dialog.qnaContext",
+              "value": "=turn.recognized.answers[0].context.prompts"
+            },
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "5MW6Fq"
+              },
+              "maxTurnCount": 3,
+              "alwaysPrompt": true,
+              "allowInterruptions": false,
+              "prompt": "${TextInput_Prompt_SU5llW()}",
+              "property": "turn.qnaMultiTurnResponse"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "A2b99A"
+              },
+              "property": "turn.qnaMatchFromContext",
+              "value": "=where(dialog.qnaContext, item, item.displayText == turn.qnaMultiTurnResponse)"
+            },
+            {
+              "$kind": "Microsoft.DeleteProperty",
+              "$designer": {
+                "id": "KnXtlu"
+              },
+              "property": "dialog.qnaContext"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "cn6ZJF"
+              },
+              "condition": "turn.qnaMatchFromContext && count(turn.qnaMatchFromContext) > 0",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "fPhHaL"
+                  },
+                  "property": "turn.qnaIdFromPrompt",
+                  "value": "=turn.qnaMatchFromContext[0].qnaId"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.EmitEvent",
+              "$designer": {
+                "id": "MAOjfu"
+              },
+              "eventName": "activityReceived",
+              "eventValue": "=turn.activity"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "iOtIt1"
+              },
+              "activity": "${SendActivity_vlL3Bv()}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "gmeSQe",
+        "name": "pruebaBackend"
+      },
+      "intent": "pruebaBackend",
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "hfKebc"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "http://localhost:3000/api/mbfendpoint",
+          "body": {
+            "intent": "pruebaBackend"
+          }
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "gTUPWr"
+          },
+          "activity": "${SendActivity_gTUPWr()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "6Th60I",
+        "name": "BestSellingVGPerYear"
+      },
+      "intent": "BestSellingVGPerYear",
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "q6symB"
+          },
+          "resultProperty": "dialog.api_response",
+          "responseType": "json",
+          "headers": {
+            "intent": "BestSellingVGPerYear",
+            "params": "${turn.recognized.entities}"
+          },
+          "method": "POST",
+          "url": "http://localhost:3000/api/mbfendpoint"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "vDzwaD"
+          },
+          "activity": "${SendActivity_vDzwaD()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "LwAiDr",
+        "name": "GamesPerPlatform"
+      },
+      "intent": "GamesPerPlatform",
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "9w6iXz"
+          },
+          "resultProperty": "dialog.api_response",
+          "method": "POST",
+          "url": "http://localhost:3000/api/mbfendpoint",
+          "responseType": "json",
+          "headers": {
+            "intent": "GamesPerPlatform",
+            "params": "${turn.recognized.entities}"
+          }
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "lTfpWw"
+          },
+          "activity": "${SendActivity_lTfpWw()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "s80hfw",
+        "name": "GamesPerGenreAndYear"
+      },
+      "intent": "GamesPerGenreAndYear",
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "NTGwgW"
+          },
+          "resultProperty": "dialog.api_response",
+          "method": "POST",
+          "url": "http://localhost:3000/api/mbfendpoint",
+          "responseType": "json",
+          "headers": {
+            "intent": "GamesPerGenreAndYear",
+            "params": "${turn.recognized.entities}"
+          }
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "R5A3Bx"
+          },
+          "activity": "${SendActivity_R5A3Bx()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "5XO4BB",
+        "name": "GamesPerCompanyAndYear"
+      },
+      "intent": "GamesPerCompanyAndYear",
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "iTa1wH"
+          },
+          "resultProperty": "dialog.api_response",
+          "method": "POST",
+          "responseType": "json",
+          "url": "http://localhost:3000/api/mbfendpoint",
+          "headers": {
+            "intent": "GamesPerCompanyAndYear",
+            "params": "${turn.recognized.entities}"
+          }
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "fHvhLt"
+          },
+          "activity": "${SendActivity_fHvhLt()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "DBlz94",
+        "name": "SalesByYear"
+      },
+      "intent": "SalesByYear",
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "FKk5SI"
+          },
+          "resultProperty": "dialog.api_response",
+          "method": "POST",
+          "url": "http://localhost:3000/api/mbfendpoint",
+          "headers": {
+            "intent": "SalesByYear",
+            "params": "${turn.recognized.entities}"
+          },
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "NAsEYU"
+          },
+          "activity": "${SendActivity_NAsEYU()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "F8gZnt",
+        "name": "GamesPerName"
+      },
+      "intent": "GamesPerName",
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "NAWVpd"
+          },
+          "resultProperty": "dialog.api_response",
+          "method": "POST",
+          "responseType": "json",
+          "url": "http://localhost:3000/api/mbfendpoint",
+          "headers": {
+            "intent": "GamesPerName",
+            "params": "${turn.recognized.entities}"
+          }
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "OVk3za"
+          },
+          "activity": "${SendActivity_OVk3za()}"
+        }
+      ]
+    }
+  ],
+  "generator": "TFGBot.lg",
+  "id": "TFGBot",
+  "recognizer": "TFGBot.lu.qna"
+}

@@ -1,0 +1,37 @@
+[import](common.lg)
+
+# SendActivity_9WFK0f()
+[Activity
+    Attachments = ${SendActivity_9WFK0f_attachment_vgyLkW()}
+]
+
+# SendActivity_9WFK0f_attachment_vgyLkW()
+[ThumbnailCard
+    title = BotFramework Thumbnail Card
+    subtitle = Microsoft Bot Framework
+    text = Build and connect intelligent bots to interact with your users naturally wherever they are, from text/sms to Skype, Slack, Office 365 mail and other popular services.
+    image = https://sec.ch9.ms/ch9/7ff5/e07cfef0-aa3b-40bb-9baa-7c9ef8ff7ff5/buildreactionbotframework_960.jpg
+    buttons = Get Started
+]
+
+# SendActivity_Z7OUWX()
+[Activity
+    Attachments = ${json(SendActivity_Z7OUWX_attachment_cjDSEn())}
+]
+
+# SendActivity_Z7OUWX_attachment_cjDSEn()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "default text",
+      "weight": "bolder",
+      "isSubtle": false
+    }
+  ]
+}```

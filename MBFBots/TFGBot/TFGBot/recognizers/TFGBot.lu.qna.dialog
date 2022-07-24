@@ -1,0 +1,7 @@
+{
+  "$kind": "Microsoft.CrossTrainedRecognizerSet",
+  "recognizers": [
+    "TFGBot.lu",
+    "TFGBot.qna"
+  ]
+}

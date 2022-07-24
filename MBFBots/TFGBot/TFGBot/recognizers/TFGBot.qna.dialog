@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "QnA_TFGBot",
+  "recognizers": {
+    "en-us": "TFGBot.en-us.qna",
+    "": "TFGBot.en-us.qna"
+  }
+}

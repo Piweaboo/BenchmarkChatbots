@@ -1,0 +1,38 @@
+# ? What can you do?
+- Tell me what you are capable of
+- Tell  me what you can do
+- What functions can you do?
+- What are you capable of?
+- Tell me all you can do
+```
+You can ask me about:\n\n*   Information about a specific videogame. For example: "Give me info about Symphony of the Night"\n*   I can answer you about which videogame was the best-selling in the year you tell me. "Give me info about the game that sold the most en 2008".\n*   You can ask me about the best-selling video games by console. "Which video games were the best sellers on game boy?"\n*   I can answer you with the games that sold the most according to the genre and year you give me. "What were the best-selling platform games of 1993?\n*   I can answer about video games sold by a particular company in a particular year. You can limit the number of answers you want to appear in the result. "What are the best-selling Nintendo video games in 2014?\n*   I can also tell you the year in which the most video games were sold, and you can ask me to filter for which console or company. "What was the year in which Konami sold the most video games?
+```
+# ? Let's talk about you
+- I wanna know about you
+- I want to know about yourself
+- Tell me about yourself
+- Who are you?
+- What are you?
+```
+Hello! My name it's TFGBot. I know I know, very creative -_-  Im an assistant with limited functionality, mostly because I'm part of a final grade project, where there will be 2 assistants more in different frameworks, so they can be compared
+```
+# ? what dataset are you using?
+- Tell me about the dataset you're using
+- I want to know about the dataset you're using
+- what can you tell me about de database you're using?
+- what is the database you use about?
+- What dataset do u use?
+- What database do you use?
+- What database are you using?
+```
+I'm using a dataset about videgame sales.  This dataset has info on the best-selling games, and adds columns like release year, developer and, of course, sales, both globally and by region.  C'mon, try it, ask me something, like "what was the best-selling videogame of 2008?"
+```
+# ? What does tfg mean?
+- Can you tell me what does "TFG" mean?
+- I don't understand what is a tfg
+- I don't know what a tfg is
+- TFG? What's that?
+- What is a "tfg"?
+```
+TFG stands for "trabajo final de grado" in spanish. It's a project tha it's done at the end of career and it takes aproximately 300 hours
+```

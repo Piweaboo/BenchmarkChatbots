@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_TFGBot",
+  "recognizers": {
+    "en-us": "TFGBot.en-us.lu",
+    "": "TFGBot.en-us.lu"
+  }
+}

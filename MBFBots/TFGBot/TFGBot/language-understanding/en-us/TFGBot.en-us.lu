@@ -1,0 +1,947 @@
+
+# IntentPrueba
+> add some example phrases to trigger this intent:
+> - please tell me the weather
+> - what is the weather like in {city=Seattle}
+
+> entity definitions:
+> @ ml city
+- Esto es una prueba
+- Intent de prueba
+
+# pruebaBackend
+- Llamando al backend
+- llama al backend
+- Prueba backend
+- backend
+
+# BestSellingVGPerYear
+> add some example phrases to trigger this intent:
+
+- Give me the best selling game of {@ year = 2015}.
+- Get the best game of {@  year = 2003}.
+- Best game of {@ year = 1993}.
+- Tell me about the most sold video game of {@ year = 2014}.
+- What do you know about the game that sold the most in {@ year = 1998}?
+- Tell me about the best selling game of {@ year = 2005}.
+- Do you know the best-selling game of the year {@ year = 2014}?
+- Do you know which is the best-selling game of {@ year = 2013}?
+- I want to know the game that sold the most in {@ year = 1993}.
+- Tell me the video game that sold the most in {@ year = 2001}.
+- I want to know the best selling game of {@ year = 1996}.
+- Tell me the best selling videogame of ¨{@ year = 2012}.
+- What was the best-selling video game in {@ year = 2004}?
+- Best selling game of {@ year = 1994}.
+
+# GamesPerPlatform
+> add some example phrases to trigger this intent:
+- Give me the top-selling Wii U games.
+- I want to know what games sold the most in PlayStation 1.
+- Tell me the best selling games on the pc
+- I wanna know the best selling games of the Super Nintendo
+- I want to know the best selling games of the 3ds
+- What were the games that sold the most in Sega saturn?
+- What are the games that have sold the most in Xbox One?
+- What were the best-selling Game Boy Advance games?
+- Give me the games that sold the most on Playstation 2
+- Tell me the games that sold the most on Wii
+- Best selling game for pc
+- Games that sold the most on xbox 360
+
+@ list nombreConsola =
+	- Wii :
+		- Wii
+		- Nintendo Wii
+		- the Wii
+		- wii
+		- Nintendo Revolution
+		- RVL
+	- NS :
+		- NS
+		- Switch
+		- Nintendo Switch
+		- Nintendo NX
+		- switch
+	- NES :
+		- NES
+		- Nintendo Entertainment System
+		- Nintendo NES
+		- Famicom
+		- Family Computer
+		- nes
+	- PC :
+		- PC
+		- Personal computer
+		- pc
+		- laptop
+		- computer
+		- my little war machine
+	- GB :
+		- GB
+		- Game Boy
+		- Nintendo Game boy
+		- gameboy
+		-game boy
+	- DS :
+		- DS
+		- Nintendo DS
+		- DS Lite
+		- DSi
+		- DSi XL
+		- Nintendo DS Lite
+		- Nintendo DSi
+		- Nintendo DSi XL
+		- La maquinita
+		- ds
+		- nintendo ds
+	- X360 :
+		- X360
+		- Xbox 360
+		- xbox 360
+		- Xbox 360 Core
+		- Xbox 360 Arcade
+		- Xbox 360 Elite
+		- Xbox 360 S
+		- Xbox 360 E
+		- Xbox 360 Pro
+		- xbox360
+		- xbox 360
+	- SNES :
+		- SNES
+		- snes
+		- Super Nintendo Entertainment System
+		- Super NES
+		- Super Nintendo
+		- super nintendo
+	- PS3 :
+		- PS3
+		- PlayStation 3
+		- Play 3
+		- Sony PlayStation 3
+		- Sony Play 3
+		- play 3
+		- playstation 3
+	- PS4 :
+		- PS4
+		- PlayStation 4
+		- Play 4
+		- Sony PlayStation 4
+		- Sony Play 4
+		- play 4
+		- playstation 4
+	- 3DS :
+		- 3DS
+		- Nintendo 3DS
+		- Nintendo 3DS XL
+		- Nintendo 2DS
+		- New Nintendo 3DS
+		- New Nintendo 3DS XL
+		- New Nintendo 2DS XL
+		- 3DS XL
+		- 2DS
+		- New 3DS
+		- New 3DS XL
+		- New 2DS XL
+		- 3ds
+		- nintendo 3ds
+		- nintendo 2ds
+	- PS2 :
+		- PS2
+		- PlayStation 2
+		- Sony PlayStation 2
+		- PS2 Slim
+		- PlayStation 2 Slim
+		- Play 2
+		- playstation 2
+	- GBA :
+		- GBA
+		- Game Boy Advance
+		- Nintendo Game Boy Advance
+		- Game Boy Advance SP
+		- Game Boy Micro
+		- Gameboy advance
+		- Gameboy Advance sp
+		- gameboy advance
+		- game boy advance
+	- GEN :
+		- GEN
+		- Sega Genesis
+		- Mega Drive
+		- Sega Mega Drive
+		- Genesis
+		- genesis
+		- sega genesis
+	- N64 :
+		- N64
+		- Nintendo 64
+		- Project Reality
+		- Ultra 64
+		- nintendo 64
+	- PS :
+		- PS
+		- PS1
+		- PlayStation
+		- PS One
+		- PSone
+		- PSX
+		- Sony PlayStation
+		- PlayStation 1
+		- Play 1
+		- Play X
+		- play 1
+		- playstation 1
+		- playstation x
+	- XOne :
+		- XOne
+		- Xbox One
+		- Xbox One S
+		- Xbox One X
+		- xbox one
+		- xbox one x
+		- xbox one s
+	- WiiU :
+		- WiiU
+		- Wii U
+		- Nintendo Wii U
+		- Project Café
+	- XB :
+		- XB
+		- Xbox
+		- xbox
+	- PSP :
+		- PSP
+		- PlayStation Portable
+		- Sony  PlayStation Portable
+		- Playstation portable
+		- PSP Go
+		- PSP Street
+		- psp
+	- 2600 :
+		- 2600
+		- Atari 2600
+		- Atari Video Computer System
+		- Atari VCS
+		- atari 2600
+	- GC :
+		- GC
+		- gamecube
+		- Nintendo GameCube
+		- GameCube
+		- Dolphin
+		- Project Dolphin
+		- nintendo gamecube
+	- GBC :
+		- GBC
+		- gameboy color
+		- Game Boy Color
+		- Nintendo Game Boy Color
+		- gameboy color
+		- game boy color
+	- iOS :
+		- iOS
+		- iPhone OS
+		- iPhone Operating System
+		- iPhone
+		- iPad
+		- Apple
+		- ios
+	- PSN :
+		- PSN
+		- playstation network
+		- PlayStation Network
+		- psn
+	- PSV :
+		- PSV
+		- PlayStation Vita
+		- PS Vita
+		- Vita
+		- psvita
+	- DC :
+		- Dreamcast
+		- Sega Dreamcast
+		- dreamcast
+	- Int :
+		- Intellivision
+		- intellivision
+		- Mattel Intellivision
+	- XBL :
+		- XBL
+		- Xbox Live
+		- Xbox network
+		- xbox live
+	- SCD :
+		- Sega CD
+		- Mega-CD
+		- sega cd
+		- mega cd
+	- SAT :
+		- Saturn
+		- Sega Saturn
+		- sega saturn
+	- PS5 :
+		- PS5
+		- Sony PlayStation 5
+		- PlayStation 5
+		- Play 5
+		- play 5
+		- playstation 5
+	- XS :
+		- Xbox Series X
+		- Xbox Series S
+		- Xbox Series
+		- Series X
+		- Series S
+		- Xbox X
+
+
+
+# GamesPerGenreAndYear
+- Which simulators sold the most in {@  year = 2020}?
+- What were the best-selling sports games in {@  year = 2021}?
+- Which open worlds were the best sellers in {@  year = 2015}?
+- Tell me which roguelikes sold the most in {@  year = 2009}.
+- Tell me which puzzle games sold the most in {@  year = 2010}.
+- Can you tell me which were the best-selling shooting games of {@  year = 1998}?
+- Do you know which were the best-selling fightings of {@  year = 2002}?
+- Tell me which were the best-selling racing games of {@  year = 2012}.
+- Wich were the best-selling platforms of {@  year = 2005}?
+- What are the best-selling action games of {@  year = 2018}?
+
+@ list nombreGenero =
+	- Action :
+		- Action
+		- action games
+		- survival games
+		- hack and slash
+		- beat em up
+		- beat 'em up
+		- hack 'n slash
+		- action
+	- Action-Adventure :
+		- Action-Adventure
+		- action adventure games
+		- metroidvania
+		- action and adventure
+		- action & adventure
+		- action adventure
+	- Adventure :
+		- Adventure
+		- adventure games
+		- graphic adventures
+		- visual novels
+		- adventure
+	- Fighting :
+		- Fighting
+		- fighting games
+		- versus fighting games
+		- versus
+		- fighting
+	- Misc :
+		- Misc
+	- MMO :
+		- MMO
+		- mmo game
+		- mmog
+		- massively multiplayer online game
+		- mmo
+	- Music :
+		- Music
+		- musical games
+		- dance games
+		- Rhythm game
+		- music games
+		- music
+	- Party :
+		- Party
+		- mini games
+		- party games
+		- el smash
+		- party
+	- Platform :
+		- Platform
+		- platform games
+		- platformers
+		- climbing game
+		- platform
+	- Puzzle :
+		- Puzzle
+		- puzzle games
+		- puzzle
+		- logic
+		- logic games
+	- Racing :
+		- Racing
+		- racing games
+		- racing simulators
+		- racing sim
+		- car games
+		- racing
+	- Role-Playing :
+		- Role-Playing
+		- role playing games
+		- roleplaying games
+		- roleplay
+		- roleplaying
+		- dungeons and dragons
+		- rpg
+		- action rpg
+		- roguelike
+		- JRPG
+		- role playing
+	- Sandbox :
+		- Sandbox
+		- sandbox games
+		- open-world games
+		- open world games
+		- creative
+		- creative games
+		- open world
+		- sandbox
+	- Shooter :
+		- Shooter
+		- shooter games
+		- shooters
+		- shoot 'em up
+		- shooter
+	- Simulation :
+		- Simulation
+		- simulation games
+		- cms
+		- construction and management sim
+		- construction and management simulators
+		- simulators
+		- city building
+		- life sumulator game
+		- life sim
+		- simulation
+	- Sports :
+		- Sports
+		- sports games
+		- sports
+	- Strategy :
+		- Strategy
+		- strategy games
+		- 4x games
+		- auto chess
+		- MOBA
+		- RTS
+		- real time strategy
+		- tower defense
+		- turn base strategy
+		- TBS
+		- wargame
+		- strategy
+
+
+# GamesPerCompanyAndYear
+- I want to know the games that Disney sold in {@  year = 2005}.
+- Tell me the {@ Number = 3} best-selling games Nintendo distributed in {@  year = 2014}.
+- Tell me the games sold by Sony in {@  year = 2015}
+- Can you tell me which were the {@ Number = 6} best-selling games published by EA in {@  year = 2006}?
+- What were the top {@ Number = 5} best-selling games distributed by Ubisoft in {@  year = 2020}?
+- I want to know the top {@ Number = 7} best selling games by Sony in {@  year = 1999}
+- Sega's top {@ Number = 10} best-selling games in {@  year = 2002}
+- List of Capcom's best-selling games in in {@  year = 2008}
+- Which games did Square Enix distribute in {@  year = 2000}?
+- Give me the top {@ Number = 3} games Nintendo released in {@  year = 2016}
+
+@ list nombreCompania =
+	- Sony :
+		- Sony
+		- sony
+		- Sony computer Entertainment
+		- Sony Interactive Entertainment
+	- Rockstar :
+		- Rockstar Games
+		- Rockstar
+	- Nintendo :
+		- Nintendo
+		- nintendo
+	- Electronic Arts :
+		- Electronic Arts
+		- EA
+		- ea
+	- Activision :
+		- Activision
+		- activision
+	- Bethesda :
+		- Bethesda Softworks
+		- bethesda
+	- EA Sports :
+		- EA Sports
+		- ea sports
+	- Sega :
+		- Sega
+		- sega
+	- Square Enix :
+		- Square Enix
+		- square enix
+	- Ubisoft :
+		- Ubisoft
+		- ubisoft
+	- THQ :
+		- THQ
+		- thq
+	- Disney :
+		- Disney Interactive Studios
+		- Disney
+		- disney
+	- Codemasters :
+		- Codemasters
+		- codemasters
+	- Konami :
+		- Konami
+		- konami
+	- 2K :
+		- 2K
+		- 2k games
+		- 2k
+	- Capcom :
+		- Capcom
+		- capcom
+	- Warner Bros :
+		- Warner Bros.
+		- warner
+		- warner bros
+	- Namco :
+		- Namco
+		- Bandai Namco
+		- namco
+		- bandai namco
+	- LucasArts :
+		- LucasArts
+		- lucasarts
+	- Numbre None :
+		- Numbre None
+		- number none
+	- Devolver Digital :
+		- Devolver Digital
+		- Devolver
+		- devolver
+	- Maxis :
+		- Maxis
+		- maxis
+	- MTV :
+		- MTV
+		- MTV Games
+		- mtv games
+		- mtv
+	- Hudson :
+		- Hudson
+		- hudson soft
+		- hudson
+	- Atari :
+		- Atari
+		- atari
+	- Gathering Of Developers :
+		- Gathering Of Developers
+		- gathering of developers
+	- Blizzard :
+		- Blizzard
+		- blizzard entretainment
+	- Microsoft :
+		- Microsoft
+		- microsoft
+		- Microsoft game studios
+	- Eidos :
+		- Eidos
+		- eidos
+		- eidos Montreal
+		- Eidos interactive
+	- Koei :
+		- Koei
+		- tecmo-koei
+		- tecmo koei
+	- Square :
+		- Square
+		- square
+	- Enix :
+		- Enix
+		- enix
+
+
+# SalesByYear
+- Tell me the year in which there were the most Xbox 360 game sales
+- I want to know which year Konami sold the most games.
+- Name the year in which the most PC games were sold
+- What was the year in which Devolver sold the most games?
+- I want to know the year in which the most NES games were sold.
+- What was the year with the highest number of Sony games sold?
+- I want to know which is the year with the highest number of Play 2 games sold.
+- I want to know which is the year with the highest number of Nintendo games sold
+- I want to know which year has sold the most games.
+- What is the year with the most sold games?
+- Tell me which year the most games were sold
+- Which year sold the most Capcom games?
+- Which year was the highest selling year for wii games?
+- What was the year with the highest video game sales?
+- In which year were the most games sold?
+
+@ list nombreCompania =
+	- Sony :
+		- Sony
+		- sony
+		- Sony computer Entertainment
+		- Sony Interactive Entertainment
+	- Rockstar :
+		- Rockstar Games
+		- Rockstar
+	- Nintendo :
+		- Nintendo
+		- nintendo
+	- Electronic Arts :
+		- Electronic Arts
+		- EA
+		- ea
+	- Activision :
+		- Activision
+		- activision
+	- Bethesda :
+		- Bethesda Softworks
+		- bethesda
+	- EA Sports :
+		- EA Sports
+		- ea sports
+	- Sega :
+		- Sega
+		- sega
+	- Square Enix :
+		- Square Enix
+		- square enix
+	- Ubisoft :
+		- Ubisoft
+		- ubisoft
+	- THQ :
+		- THQ
+		- thq
+	- Disney :
+		- Disney Interactive Studios
+		- Disney
+		- disney
+	- Codemasters :
+		- Codemasters
+		- codemasters
+	- Konami :
+		- Konami
+		- konami
+	- 2K :
+		- 2K
+		- 2k games
+		- 2k
+	- Capcom :
+		- Capcom
+		- capcom
+	- Warner Bros :
+		- Warner Bros.
+		- warner
+		- warner bros
+	- Namco :
+		- Namco
+		- Bandai Namco
+		- namco
+		- bandai namco
+	- LucasArts :
+		- LucasArts
+		- lucasarts
+	- Numbre None :
+		- Numbre None
+		- number none
+	- Devolver Digital :
+		- Devolver Digital
+		- Devolver
+		- devolver
+	- Maxis :
+		- Maxis
+		- maxis
+	- MTV :
+		- MTV
+		- MTV Games
+		- mtv games
+		- mtv
+	- Hudson :
+		- Hudson
+		- hudson soft
+		- hudson
+	- Atari :
+		- Atari
+		- atari
+	- Gathering Of Developers :
+		- Gathering Of Developers
+		- gathering of developers
+	- Blizzard :
+		- Blizzard
+		- blizzard entretainment
+	- Microsoft :
+		- Microsoft
+		- microsoft
+		- Microsoft game studios
+	- Eidos :
+		- Eidos
+		- eidos
+		- eidos Montreal
+		- Eidos interactive
+	- Koei :
+		- Koei
+		- tecmo-koei
+		- tecmo koei
+	- Square :
+		- Square
+		- square
+	- Enix :
+		- Enix
+		- enix
+
+
+@ list nombreConsola =
+	- Wii :
+		- Wii
+		- Nintendo Wii
+		- the Wii
+		- wii
+		- Nintendo Revolution
+		- RVL
+	- NS :
+		- NS
+		- Switch
+		- Nintendo Switch
+		- Nintendo NX
+		- switch
+	- NES :
+		- NES
+		- Nintendo Entertainment System
+		- Nintendo NES
+		- Famicom
+		- Family Computer
+		- nes
+	- PC :
+		- PC
+		- Personal computer
+		- pc
+		- laptop
+		- computer
+		- my little war machine
+	- GB :
+		- GB
+		- Game Boy
+		- Nintendo Game boy
+		- gameboy
+		-game boy
+	- DS :
+		- DS
+		- Nintendo DS
+		- DS Lite
+		- DSi
+		- DSi XL
+		- Nintendo DS Lite
+		- Nintendo DSi
+		- Nintendo DSi XL
+		- La maquinita
+		- ds
+		- nintendo ds
+	- X360 :
+		- X360
+		- Xbox 360
+		- xbox 360
+		- Xbox 360 Core
+		- Xbox 360 Arcade
+		- Xbox 360 Elite
+		- Xbox 360 S
+		- Xbox 360 E
+		- Xbox 360 Pro
+		- xbox360
+		- xbox 360
+	- SNES :
+		- SNES
+		- snes
+		- Super Nintendo Entertainment System
+		- Super NES
+		- Super Nintendo
+		- super nintendo
+	- PS3 :
+		- PS3
+		- PlayStation 3
+		- Play 3
+		- Sony PlayStation 3
+		- Sony Play 3
+		- play 3
+		- playstation 3
+	- PS4 :
+		- PS4
+		- PlayStation 4
+		- Play 4
+		- Sony PlayStation 4
+		- Sony Play 4
+		- play 4
+		- playstation 4
+	- 3DS :
+		- 3DS
+		- Nintendo 3DS
+		- Nintendo 3DS XL
+		- Nintendo 2DS
+		- New Nintendo 3DS
+		- New Nintendo 3DS XL
+		- New Nintendo 2DS XL
+		- 3DS XL
+		- 2DS
+		- New 3DS
+		- New 3DS XL
+		- New 2DS XL
+		- 3ds
+		- nintendo 3ds
+		- nintendo 2ds
+	- PS2 :
+		- PS2
+		- PlayStation 2
+		- Sony PlayStation 2
+		- PS2 Slim
+		- PlayStation 2 Slim
+		- Play 2
+		- playstation 2
+	- GBA :
+		- GBA
+		- Game Boy Advance
+		- Nintendo Game Boy Advance
+		- Game Boy Advance SP
+		- Game Boy Micro
+		- Gameboy advance
+		- Gameboy Advance sp
+		- gameboy advance
+		- game boy advance
+	- GEN :
+		- GEN
+		- Sega Genesis
+		- Mega Drive
+		- Sega Mega Drive
+		- Genesis
+		- genesis
+		- sega genesis
+	- N64 :
+		- N64
+		- Nintendo 64
+		- Project Reality
+		- Ultra 64
+		- nintendo 64
+	- PS :
+		- PS
+		- PS1
+		- PlayStation
+		- PS One
+		- PSone
+		- PSX
+		- Sony PlayStation
+		- PlayStation 1
+		- Play 1
+		- Play X
+		- play 1
+		- playstation 1
+		- playstation x
+	- XOne :
+		- XOne
+		- Xbox One
+		- Xbox One S
+		- Xbox One X
+		- xbox one
+		- xbox one x
+		- xbox one s
+	- WiiU :
+		- WiiU
+		- Wii U
+		- Nintendo Wii U
+		- Project Café
+	- XB :
+		- XB
+		- Xbox
+		- xbox
+	- PSP :
+		- PSP
+		- PlayStation Portable
+		- Sony  PlayStation Portable
+		- Playstation portable
+		- PSP Go
+		- PSP Street
+		- psp
+	- 2600 :
+		- 2600
+		- Atari 2600
+		- Atari Video Computer System
+		- Atari VCS
+		- atari 2600
+	- GC :
+		- GC
+		- gamecube
+		- Nintendo GameCube
+		- GameCube
+		- Dolphin
+		- Project Dolphin
+		- nintendo gamecube
+	- GBC :
+		- GBC
+		- gameboy color
+		- Game Boy Color
+		- Nintendo Game Boy Color
+		- gameboy color
+		- game boy color
+	- iOS :
+		- iOS
+		- iPhone OS
+		- iPhone Operating System
+		- iPhone
+		- iPad
+		- Apple
+		- ios
+	- PSN :
+		- PSN
+		- playstation network
+		- PlayStation Network
+		- psn
+	- PSV :
+		- PSV
+		- PlayStation Vita
+		- PS Vita
+		- Vita
+		- psvita
+	- DC :
+		- Dreamcast
+		- Sega Dreamcast
+		- dreamcast
+	- Int :
+		- Intellivision
+		- intellivision
+		- Mattel Intellivision
+	- XBL :
+		- XBL
+		- Xbox Live
+		- Xbox network
+		- xbox live
+	- SCD :
+		- Sega CD
+		- Mega-CD
+		- sega cd
+		- mega cd
+	- SAT :
+		- Saturn
+		- Sega Saturn
+		- sega saturn
+	- PS5 :
+		- PS5
+		- Sony PlayStation 5
+		- PlayStation 5
+		- Play 5
+		- play 5
+		- playstation 5
+	- XS :
+		- Xbox Series X
+		- Xbox Series S
+		- Xbox Series
+		- Series X
+		- Series S
+		- Xbox X
+
+# GamesPerName
+- Info on {nombreJuego}.
+- I want information about {nombreJuego}.
+- Give me information on {nombreJuego}.
+- Give me info on {nombreJuego}.
+- I want to know about {nombreJuego}.
+- I want info on {nombreJuego}.
+- Give me information about {nombreJuego}.
